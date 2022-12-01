@@ -1,0 +1,7 @@
+.signup-form-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-color: blue 1px solid;
+  width: 80%;
+}
