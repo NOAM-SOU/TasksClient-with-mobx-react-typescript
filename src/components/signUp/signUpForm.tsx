@@ -22,7 +22,6 @@ export function SignUpForm() {
           resetForm();
           navigate("/");
           setSubmitting(false);
-          console.log(values);
         }}
       >
         {({ errors, touched }) => (
