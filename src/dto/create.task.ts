@@ -1,7 +1,5 @@
-export interface Todo {
+export interface CreateTaskDTo {
   title: string;
   description: string;
   completed: boolean;
-  userId: string;
-  _id: string;
 }

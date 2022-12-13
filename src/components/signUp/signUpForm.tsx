@@ -1,4 +1,5 @@
 import { Formik, Form, Field } from "formik";
+import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
 import {
   SignupSchema,
@@ -8,7 +9,7 @@ import { rootStores } from "../../stores/main";
 
 const { authStore } = rootStores;
 
-export function SignUpForm() {
+function SignUpForm() {
   const { signUp } = authStore;
   const navigate = useNavigate();
   return (
@@ -45,3 +46,5 @@ export function SignUpForm() {
     </>
   );
 }
+
+export default observer(SignUpForm);

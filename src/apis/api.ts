@@ -16,15 +16,15 @@ export const loginApi = axios.create({
   },
 });
 
-// api.interceptors.request.use(
-//   (config: AxiosRequestConfig): AxiosRequestConfig => {
-//     // add a request interceptor to the global api instance to add the token to the header
-//     const token = localStorage.getItem("token");
-//     if (token) {
-//       (config.headers ??= {}).Authorization = `Bearer ${localStorage.getItem(
-//         "token"
-//       )}`;
-//     }
-//     return config;
-//   }
-// );
+api.interceptors.request.use(
+  (config: AxiosRequestConfig): AxiosRequestConfig => {
+    // add a request interceptor to the global api instance to add the token to the header
+    const token = localStorage.getItem("token");
+    if (token) {
+      (config.headers ??= {}).Authorization = `Bearer ${localStorage.getItem(
+        "token"
+      )}`;
+    }
+    return config;
+  }
+);

@@ -1,18 +1,45 @@
-import { Link } from "react-router-dom";
+import { Formik, Form, Field } from "formik";
+import { observer } from "mobx-react";
+import { useNavigate } from "react-router-dom";
+import {
+  initial,
+  loginSchema,
+} from "../../formTools/validation/login.validation";
+import { rootStores } from "../../stores/main";
 
-export function LoginForm() {
+const { authStore } = rootStores;
+
+function LoginForm() {
+  const { login } = authStore;
+  const navigate = useNavigate();
   return (
     <>
-      <div className="login-form-inputs">
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-      </div>
-      <div className="login-form-btn">
-        <button className="login-btn">Sign Up</button>
-      </div>
-      <div className="login-form-link">
-        <Link to="/signup">Don't have an account?</Link>
-      </div>
+      <h1>login</h1>
+      <Formik
+        initialValues={initial}
+        validationSchema={loginSchema}
+        onSubmit={async (values, { setSubmitting, resetForm }) => {
+          await login(values);
+          resetForm();
+          navigate("/");
+          setSubmitting(false);
+        }}
+      >
+        {({ errors, touched }) => (
+          <Form>
+            <Field name="email" type="email" placeholder="email" />
+            {errors.email && touched.email ? <div>{errors.email}</div> : null}
+            <Field name="password" placeholder="password" />
+            {errors.password && touched.password ? (
+              <div>{errors.password}</div>
+            ) : null}
+
+            <button type="submit">Submit</button>
+          </Form>
+        )}
+      </Formik>
     </>
   );
 }
+
+export default observer(LoginForm);
