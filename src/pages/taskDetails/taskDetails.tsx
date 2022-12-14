@@ -2,7 +2,7 @@ import { toJS } from "mobx";
 import { observer } from "mobx-react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { rootStores } from "../stores/main";
+import { rootStores } from "../../stores/main";
 
 const { taskStore } = rootStores;
 

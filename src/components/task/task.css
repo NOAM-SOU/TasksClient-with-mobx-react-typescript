@@ -1,0 +1,37 @@
+.task-oficial {
+  width: 80%;
+  height: 10%;
+  background-color: #fcfcfc;
+  border: 1px solid #e5e5e5;
+  border-radius: 15px;
+
+  margin: 10%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  justify-content: space-between;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.task-title {
+  margin-left: 10%;
+  /* margin-left: 1em; */
+  font-size: x-large;
+  margin-top: 3%;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  white-space: nowrap;
+  /* overflow: hidden; */
+  /* text-overflow: clip; */
+}
+
+.task-title::before {
+  content: "•";
+  display: inline-block;
+  color: #8da7fe;
+  font-size: xx-large;
+  width: 2em;
+  margin-left: -1em;
+}

@@ -1,14 +1,15 @@
 import { observer } from "mobx-react";
 import "./App.css";
-import Home from "./pages/home";
+import Home from "./pages/home/home";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import SignUp from "./pages/signUp";
-import Login from "./pages/login";
+import SignUp from "./pages/signUp/signUp";
+import Login from "./pages/login/login";
 import { rootStores } from "./stores/main";
-import TaskDetails from "./pages/taskDetails";
-import NewTask from "./pages/newTask";
-import EditTask from "./pages/editTask";
+import TaskDetails from "./pages/taskDetails/taskDetails";
+import NewTask from "./pages/newTask/newTask";
+import EditTask from "./pages/editTask/editTask";
 import MyContext from "./context/mi.context";
+import Header from "./components/header/header";
 
 const { authStore } = rootStores;
 

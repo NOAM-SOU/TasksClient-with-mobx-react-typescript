@@ -1,0 +1,37 @@
+.home-img {
+  width: 100%;
+  height: 100%;
+  background-image: url("/public//tasknini1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  /* border: 5px solid rgb(164, 199, 40); */
+}
+
+.home-start-div {
+  /* border: 1px solid rgb(141, 40, 199); */
+  width: 100%;
+  height: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.home-start {
+  opacity: 60%;
+}
+
+.home-add-div {
+  /* border: 1px solid green; */
+  width: 100%;
+  height: 35%;
+  display: flex;
+  justify-content: center;
+}
+
+#home-add {
+  color: #8da7fe;
+  width: 100%;
+  height: 25%;
+  /* border: 1px solid yellow; */
+  margin-top: 100%;
+}

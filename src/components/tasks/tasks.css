@@ -1,0 +1,9 @@
+.tasks-oficial {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  /* border: 1px solid #df2f2f; */
+  /* display: flex;
+  flex-direction: column;
+  justify-items: center; */
+}

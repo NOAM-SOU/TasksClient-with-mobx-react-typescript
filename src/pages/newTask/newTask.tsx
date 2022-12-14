@@ -1,26 +1,26 @@
 import { Field, Formik, Form } from "formik";
 import { observer } from "mobx-react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { initial, editSchema } from "../formTools/validation/editTask";
-import { rootStores } from "../stores/main";
+import { useNavigate } from "react-router-dom";
+import { initial, newTaskSchema } from "../../formTools/validation/newTask";
+import { rootStores } from "../../stores/main";
 
-const { taskStore } = rootStores;
+const { taskStore, authStore } = rootStores;
 
-function EditTask() {
-  const { updateTask, taskInfo } = taskStore;
+function NewTask() {
+  const { createTask } = taskStore;
+  const { userInfo } = authStore;
   const navigate = useNavigate();
-  const location = useLocation();
-  console.log(location, " useLocation Hook");
-  // const data = location.state?.data;
 
   return (
     <>
+      <h1>add new task</h1>
       <Formik
         initialValues={initial}
-        validationSchema={editSchema}
+        validationSchema={newTaskSchema}
         onSubmit={async (values, { setSubmitting, resetForm }) => {
           console.log("values", values);
-          await updateTask(taskInfo._id, values);
+
+          await createTask(values, userInfo.id);
           resetForm();
           navigate("/");
           setSubmitting(false);
@@ -28,12 +28,7 @@ function EditTask() {
       >
         {({ errors, touched }) => (
           <Form>
-            <Field
-              name="title"
-              type="string"
-              placeholder="title"
-              // value={task.title}
-            />
+            <Field name="title" type="string" placeholder="title" />
             {errors.title && touched.title ? <div>{errors.title}</div> : null}
             <Field name="description" placeholder="description" />
             {errors.description && touched.description ? (
@@ -48,4 +43,4 @@ function EditTask() {
   );
 }
 
-export default observer(EditTask);
+export default observer(NewTask);
