@@ -1,13 +1,18 @@
 import { Link } from "react-router-dom";
 import SignUpForm from "../../components/signUp/signUpForm";
+import "./signUp.css";
 
 export default function SignUp() {
   return (
     <div className="signup-container">
-      <div className="signup-header">Wellcome to Todos</div>
+      <div className="signup-header">Wellcome</div>
       <SignUpForm />
-      <div>
-        <Link to="/login">Already have an account? Login</Link>
+      <div className="signup-link">
+        Already have an account?{" "}
+        <Link id="signup-link" to="/login">
+          {" "}
+          Login
+        </Link>
       </div>
     </div>
   );

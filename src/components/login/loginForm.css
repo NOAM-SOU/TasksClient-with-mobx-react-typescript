@@ -1,0 +1,28 @@
+.login-form-oficial {
+  height: 50%;
+  /* border: 6px solid rgb(192, 255, 211); */
+}
+
+/* .login-form-header {
+  height: 10%;
+  border: 5px solid rgb(255, 207, 192);
+} */
+
+.login-form-form {
+  height: 100%;
+  /* border: 1px solid rgb(232, 192, 255); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form-btn {
+  width: 60%;
+  height: 10%;
+  /* border: 1px solid rgb(255, 192, 192); */
+  border: none;
+  margin-top: 10%;
+  border-radius: 15px;
+  background-color: #8da7fe;
+}

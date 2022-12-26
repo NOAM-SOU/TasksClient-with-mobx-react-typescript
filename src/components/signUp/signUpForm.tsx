@@ -1,11 +1,13 @@
-import { Formik, Form, Field } from "formik";
+import { Formik, Form } from "formik";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
+import { CustomInput } from "../../formTools/customInput/customInput";
 import {
   SignupSchema,
   initial,
 } from "../../formTools/validation/signUp.validation";
 import { rootStores } from "../../stores/main";
+import "./signUpForm.css";
 
 const { authStore } = rootStores;
 
@@ -13,8 +15,7 @@ function SignUpForm() {
   const { signUp } = authStore;
   const navigate = useNavigate();
   return (
-    <>
-      <h1>Signup</h1>
+    <div className="signup-form-oficial">
       <Formik
         initialValues={initial}
         validationSchema={SignupSchema}
@@ -25,25 +26,28 @@ function SignUpForm() {
           setSubmitting(false);
         }}
       >
-        {({ errors, touched }) => (
-          <Form>
-            <Field name="name" placeholder="name" />
-            {errors.name && touched.name ? <div>{errors.name}</div> : null}
-            <Field name="email" type="email" placeholder="email" />
-            {errors.email && touched.email ? <div>{errors.email}</div> : null}
-            <Field name="password" placeholder="password" />
-            {errors.password && touched.password ? (
-              <div>{errors.password}</div>
-            ) : null}
-            <Field name="confirmPassword" />
-            {errors.confirmPassword && touched.confirmPassword ? (
-              <div>{errors.confirmPassword}</div>
-            ) : null}
-            <button type="submit">Submit</button>
+        {() => (
+          <Form className="signup-form-form">
+            <CustomInput name="name" type="string" placeholder="name" />
+            <CustomInput name="email" type="email" placeholder="email" />
+            <CustomInput
+              name="password"
+              type="password"
+              placeholder="password"
+            />
+            <CustomInput
+              name="confirmPassword"
+              type="password"
+              placeholder="confirm password"
+            />
+
+            <button className="signup-form-btn" type="submit">
+              Submit
+            </button>
           </Form>
         )}
       </Formik>
-    </>
+    </div>
   );
 }
 

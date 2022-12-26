@@ -1,5 +1,6 @@
 import { createContext } from "react";
-
-const MyContext = createContext(null);
-
-export default MyContext;
+import { Context } from "../types/context.type";
+export const MyContext = createContext<Context>({
+  state: false,
+  setState: () => {},
+});

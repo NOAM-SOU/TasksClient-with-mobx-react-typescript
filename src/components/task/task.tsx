@@ -18,9 +18,13 @@ function Task(props: TaskData) {
 
   const { data } = props;
   return (
-    <Link to={`/details/${data._id}`}>
+    <Link className="task-link" to={`/details/${data._id}`}>
       <div className="task-oficial" key={data._id}>
-        <div className="task-title">{data.title}</div>
+        <div className="task-title">
+          {data.title.length >= 17
+            ? data.title.slice(0, 17) + "..."
+            : data.title}
+        </div>
 
         {/* <Link to={`/details/${data._id}`}>{data.title}</Link>
         <BsTrash

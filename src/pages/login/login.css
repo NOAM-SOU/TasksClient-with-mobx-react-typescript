@@ -1,0 +1,31 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  height: 100%;
+  width: 100%;
+  /* border: 6px solid red; */
+}
+
+.login-header {
+  height: 20%;
+  /* border: 1px solid blue; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #8da7fe;
+  font-size: 2em;
+  margin-top: 10%;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.login-link {
+  height: 20%;
+  /* border: 1px solid rgb(208, 255, 0); */
+}
+
+#login-link {
+  color: #8da7fe;
+}

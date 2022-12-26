@@ -1,11 +1,13 @@
 import { Formik, Form, Field } from "formik";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
+import { CustomInput } from "../../formTools/customInput/customInput";
 import {
   initial,
   loginSchema,
 } from "../../formTools/validation/login.validation";
 import { rootStores } from "../../stores/main";
+import "./loginForm.css";
 
 const { authStore } = rootStores;
 
@@ -13,8 +15,7 @@ function LoginForm() {
   const { login } = authStore;
   const navigate = useNavigate();
   return (
-    <>
-      <h1>login</h1>
+    <div className="login-form-oficial">
       <Formik
         initialValues={initial}
         validationSchema={loginSchema}
@@ -25,20 +26,22 @@ function LoginForm() {
           setSubmitting(false);
         }}
       >
-        {({ errors, touched }) => (
-          <Form>
-            <Field name="email" type="email" placeholder="email" />
-            {errors.email && touched.email ? <div>{errors.email}</div> : null}
-            <Field name="password" placeholder="password" />
-            {errors.password && touched.password ? (
-              <div>{errors.password}</div>
-            ) : null}
+        {() => (
+          <Form className="login-form-form">
+            <CustomInput name="email" type="email" placeholder="email" />
+            <CustomInput
+              name="password"
+              type="password"
+              placeholder="password"
+            />
 
-            <button type="submit">Submit</button>
+            <button className="login-form-btn" type="submit">
+              Submit
+            </button>
           </Form>
         )}
       </Formik>
-    </>
+    </div>
   );
 }
 

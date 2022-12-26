@@ -35,3 +35,8 @@
   width: 2em;
   margin-left: -1em;
 }
+
+.task-link {
+  text-decoration: none;
+  color: #8da7fe;
+}
